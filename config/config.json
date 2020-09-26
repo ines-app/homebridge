@@ -1,0 +1,35 @@
+{
+    "bridge": {
+        "name": "INES Homebridge",
+        "username": "0E:55:E3:24:F7:A5",
+        "port": 53037,
+        "pin": "031-45-154"
+    },
+    "description": "INES Homebridge",
+    "accessories": [],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8080,
+            "platform": "config"
+        },
+        {
+            "name": "Camera FFmpeg",
+            "cameras": [
+                {
+                    "name": "Ines Camera",
+                    "uploader": false,
+                    "manufacturer": "RPi",
+                    "model": "NoIR Camera 2",
+                    "videoConfig": {
+                        "source": "-re -f video4linux2 -i /dev/video0",
+                        "stillImageSource": "-re -f video4linux2 -ss 0.9 -i /dev/video0 -vframes 1",
+                        "maxWidth": 1920,
+                        "maxHeight": 1080
+                    }
+                }
+            ],
+            "platform": "Camera-ffmpeg"
+        }
+    ]
+}
