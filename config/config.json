@@ -25,9 +25,6 @@
                     "videoConfig": {
                         "source": "-re -f video4linux2 -i /dev/video0",
                         "stillImageSource": "-re -f video4linux2 -ss 0.9 -i /dev/video0 -vframes 1",
-                        "maxWidth": 1920,
-                        "maxHeight": 1080,
-                        "maxFPS": 30,
                         "vcodec": "h264",
                         "debug": true
                     }
