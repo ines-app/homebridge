@@ -17,6 +17,7 @@
             "name": "Camera FFmpeg",
             "cameras": [
                 {
+
                     "name": "Ines Camera",
                     "uploader": false,
                     "manufacturer": "RPi",
