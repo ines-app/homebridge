@@ -1,1 +1,1 @@
-docker run --net=host inesapp:homebridge
+docker run --net=host inesapp/homebridge
