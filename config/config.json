@@ -23,7 +23,7 @@
                     "manufacturer": "RPi",
                     "model": "NoIR Camera 2",
                     "videoConfig": {
-                        "source": "-re -f video4linux2 -loglevel verbose+debug -i /dev/video0",
+                        "source": "-re -f video4linux2 -loglevel verbose -i /dev/video0",
                         "stillImageSource": "-re -f video4linux2 -ss 0.9 -i /dev/video0 -vframes 1",
                         "vcodec": "h264",
                         "debug": true
