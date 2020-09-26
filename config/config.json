@@ -30,7 +30,7 @@
                         "maxWidth": 1280,
                         "maxHeight": 720,
                         "maxFPS": 30,
-                        "vcodec": "h264_omx",
+                        "vcodec": "h264",
                         "debug": true
                     }
                 }
