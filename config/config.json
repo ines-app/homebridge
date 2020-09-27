@@ -14,23 +14,22 @@
             "platform": "config"
         },
         {
-            "name": "Camera FFmpeg",
+            "platform": "Camera-ffmpeg",
             "cameras": [
                 {
-                    "name": "RPi Camera",
-                    "manufacturer": "Raspberry Pi",
-                    "model": "Raspberry Pi NoIR Camera V2.1",
-                    "serialNumber": "0000000007a4193e",
+                    "name": "piCam",
+                    "uploader": false,
                     "videoConfig": {
-                        "source": "-re -f video4linux2 -input_format h264 -i /dev/video0",
+                        "source": "-re -f video4linux2 -i /dev/video0",
                         "stillImageSource": "-re -f video4linux2 -ss 0.9 -i /dev/video0 -vframes 1",
-                        "videoFilter": "transpose=2",
-                        "debug": true,
-                        "debugReturn": true
+                        "maxStreams": 2,
+                        "maxWidth": 1920,
+                        "maxHeight": 1080,
+                        "maxFPS": 30,
+                        "vcodec": "h264_omx"
                     }
                 }
-            ],
-            "platform": "Camera-ffmpeg"
+            ]
         }
     ]
 }
