@@ -1,4 +1,28 @@
 git pull && docker-compose up --build -d && docker logs -f homebridge
 
+// WORKS
+ffmpeg -re -f video4linux2 -input_format h264 -video_size 1280x720 -framerate 30 -i /dev/video0 -vcodec copy -an test.h264 -y
 
-ffmpeg -re -f video4linux2 -ss 0.9 -i /dev/video0 -vf "transpose=1" out.jpg
+// TEST
+ffmpeg -re -f video4linux2 -input_format h264 -i /dev/video0 -filter:v transpose=2,scale='min(1280,iw)':'min(720,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2 -f rawvideo -color_range mpeg -r 30 -vcodec copy -pix_fmt yuv420p -an -sn -dn test.h264 -y
+
+ffmpeg \
+-re \
+-f video4linux2 \
+-i /dev/video0 \
+-an \
+-sn \
+-dn \
+-codec:v h264 /
+-pix_fmt yuv420p \
+-color_range mpeg \
+-r 30 \
+-f rawvideo \
+-filter:v transpose=2,scale='min(1280,iw)':'min(720,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2
+-b:v 299k
+-payload_type 99
+-ssrc 15008485
+-f rtp
+-srtp_out_suite AES_CM_128_HMAC_SHA1_80
+-srtp_out_params wi4H3nx8a7+Z0nDj8Wc6TQ1ETx5YhqEjK8+hcY6O srtp://192.168.0.25:57699?rtcpport=57699&pkt_size=1316
+-loglevel level+verbose
