@@ -2,7 +2,9 @@ version: '3'
 services:
   homebridge:
     container_name: homebridge
-    image: oznu/homebridge:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     network_mode: host
     environment:
@@ -10,8 +12,8 @@ services:
       - PUID=1000
       - HOMEBRIDGE_CONFIG_UI=1
       - HOMEBRIDGE_CONFIG_UI_PORT=8080
-    devices:
-      - /dev/video0:/dev/video0
+    # devices:
+    #   - /dev/video0:/dev/video0
     volumes:
       - ./homebridge:/homebridge
       - ./config/config.json:/homebridge/config.json
