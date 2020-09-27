@@ -21,4 +21,4 @@
 
 npm install --save homebridge-camera-ffmpeg
 
-chmod 777 /dev/video0
+# chmod 777 /dev/video0
