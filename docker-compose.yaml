@@ -12,8 +12,8 @@ services:
       - PUID=1000
       - HOMEBRIDGE_CONFIG_UI=1
       - HOMEBRIDGE_CONFIG_UI_PORT=8080
-    # devices:
-    #   - /dev/video0:/dev/video0
+    devices:
+      - /dev/video0:/dev/video0
     volumes:
       - ./homebridge:/homebridge
       - ./config/config.json:/homebridge/config.json
