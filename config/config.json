@@ -30,10 +30,10 @@
                         "maxWidth": 1280,
                         "maxHeight": 720,
                         "maxFPS": 30,
-                        "videoFilter": "\"transpose=2\"",
+                        "videoFilter": "transpose=2",
                         "vcodec": "h264",
                         "debug": true,
-                        "debugReturn": true,
+                        "debugReturn": true
                     }
                 }
             ],
